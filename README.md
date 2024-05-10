@@ -1,6 +1,6 @@
-# Getting Started with Graph Representation application
+# Getting Started with Graph Representation
 
-## How to run application
+## How to Run Application
 
 In order to run this application, open it in your code editor, open terminal and run these commands:
 
@@ -20,7 +20,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-## Structure of data file 
+## Structure of Data File 
 
 The structure of data file is consistent with a graph-based model where nodes represent entities and edges represent relationships or interactions. Paths (might contain explicit edges which show order of the path) provide predefined routes through the graph for analysis and visualization purposes.
 
@@ -34,7 +34,11 @@ A list of objects that represent the connections or relationships between the no
 
 #### Paths 
 
-A list of specified paths within the graph, each containing a sequence of nodes and potentially explicit edges to show specific order of connections.
+A list of specified paths within the graph, each containing a sequence of nodes and potentially explicit edges. A list of 30 different colors are assigned to different paths (if there are more than 30 paths, same colors are used). Path's nodes and explicit edges are colored by this color.
+
+#### Explicit Edges 
+
+A list of edges which are defined in path's scope. These edges show specific order of connections.
 
 ### Example:
 
@@ -62,10 +66,100 @@ A list of specified paths within the graph, each containing a sequence of nodes 
 }
 ```
 
-## How does the application work
+## How the Application Works
+
+This section provides a step-by-step guide on the core functionalities of the application.
+
+### Uploading Data
+
+- **Initiate Upload:** Click the Choose File button to begin the upload process.
+- **Select File:** Browse and select your desired data file. Ensure the file adheres to the specified structure mentioned earlier in this document.
+- **Upload Time:** Note that uploading larger files may take additional time due to increased processing requirements.
+
+### Position of Nodes
+
+Node positions within the graph are initially set at random. Upon loading the graph, these positions are dynamically updated based on their interconnecting edges. The following outlines the behavior of the node positioning feature:
+
+- **Initial Positioning:** Upon loading, node positions are automatically adjusted for the first 10 seconds based on the graph's structural connections.
+- **Visualization:** Below is an example of how the graph appears after the default positioning period:
 
 ![image](https://github.com/ariis11/Graph-Representation/assets/47053735/813e7f68-7dc2-41a8-b089-e014eae81e9a)
 
+- **Control Playback:**
+  - **Access Control:** Locate the Play/Stop button at the bottom of the control section.
+  - **Manage Positioning:** Use this button to start or stop the automatic positioning of nodes. The button's label toggles between Play and Stop depending on the current state of positioning
+
+### Control Section
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/a9d72269-3481-42ee-bcec-8d0676048314)
+
+The Control Section is designed to manage the viewing options and the automatic positioning of nodes within the graph.
+
+- **Button 1** - zooms in (also possible with mouse)  
+- **Button 2** - zooms out (also possible with mouse)  
+- **Button 3** - returns to the starting position  
+- **Button 4** - enables/disables full screen mode  
+- **Button 5** - starts/stops default positioning of nodes  
+
+### Paths Section
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/00c6adfc-39f5-4055-812b-68f5e239cf94)
+
+Paths section displays specific paths within the graph, which can be activated by selecting the corresponding checkboxes.
+
+- **Selecting Paths:** Activate a checkbox to display all nodes and edges associated with that path. When multiple paths are selected, the graph displays all corresponding nodes and edges.
+- **Explicit Edges:** These edges, which indicate the sequence of nodes, are not shown by default but can be made visible through the options section.
+- **Check/Uncheck All:** These buttons allow you to select or deselect all listed paths with a single click.
+- **Modes:**
+  - **Global Mode:** This default mode is active when no paths are selected and displays all nodes in a single color, shown here:
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/cd221619-0d9a-4339-a971-9816e78d6bd8)
+
+  - **Path Mode:** Activated when one or more paths are selected, this mode highlights nodes in colors specific to each path:
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/bdae0580-429c-4da1-a747-aa7defb2156a)
+
+### Options Section
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/1b44471e-bd4f-4e00-a677-4e603dedfec2)
+
+The Options Section provides controls for enhancing the graphical display by showing explicit edges and neighboring nodes that are not part of the selected paths.
+
+- **Ordering of Edges:**
+  - **Explicit Edges:** These can be displayed by checking the "Ordering" checkbox, which reveals the sequence of nodes within a path:
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/9162b6ea-1c4a-4e40-a074-f98db31358fa)
+
+- **Neighboring Nodes:**
+  - Neighbors are nodes connected by edges to nodes within the selected paths but are not themselves part of any selected path.
+  - **Types of Neighbors:**
+    - **Dependent Neighbors:** These nodes depend on the selected path nodes. When the "Dependent neighbors" checkbox is selected, these nodes are highlighted in grey.
+    - **Dependency Neighbors:** These nodes are those on which the selected path nodes depend. When the "Dependency neighbors" checkbox is selected, these nodes too are highlighted in grey.
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/bb2af944-5075-4a12-a8bc-b6aaa1ca9f00)
+
+### Search Bar
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/9fadd1ac-7773-470e-9973-e7a7258c0ec5)
+
+The search bar enables users to quickly locate any node within the graph by its label. Here’s how it works:
+
+- **Node Search:** Enter the label of the node you wish to find in the search bar.
+- **Highlight and Zoom:** Upon selection, the graph will automatically highlight the chosen node. Additionally, the view zooms in on this node to facilitate closer inspection.
+
+This feature is designed to streamline navigation and improve efficiency when working with complex graph structures.
+
+### Functions Section
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/88890fcb-a13a-49d1-afcd-9c8e21a9552a)
+
+Buttons "Start repositioning" and "Stop repositioning" starts and stops custom positioning of nodes. If default positioning works on all the graph, this positioning works only on shown nodes.
+
+Input field "depth" shows depth level of how many nodes are highlighted when a node is clicked. Checkboxes "Dependant" and "Dependencies" controls what type of neighbor nodes are highlighted when node is clicked. Together these inputs controls which nodes are highlighted when node is clicked. More about what happens when node is clicked is written below.
+
+"Show searched node paths" sliding checkbox controls display of a list of paths that searched node is part of.
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/35547259-ca17-4a68-a23f-269c14563561)
 
 
 
