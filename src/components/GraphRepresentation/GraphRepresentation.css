@@ -1,0 +1,14 @@
+.sigma-scene, .sigma-labels, .sigma-mouse, .sigma-edges, .sigma-edgeLabels, .sigma-nodes, .sigma-hovers, .sigma-hoverNodes {
+    left: 0;
+}
+
+.panels {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    max-height: calc(100vh - 2 * var(--stage-padding));
+    overflow-y: auto;
+    padding: var(--stage-padding);
+    scrollbar-width: thin;
+}
