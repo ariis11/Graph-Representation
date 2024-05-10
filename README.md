@@ -153,15 +153,45 @@ This feature is designed to streamline navigation and improve efficiency when wo
 
 ![image](https://github.com/ariis11/Graph-Representation/assets/47053735/88890fcb-a13a-49d1-afcd-9c8e21a9552a)
 
-Buttons "Start repositioning" and "Stop repositioning" starts and stops custom positioning of nodes. If default positioning works on all the graph, this positioning works only on shown nodes.
+Functions section offers a suite of tools designed for precise control over node positioning and interaction. Below is an overview of each control:
 
-Input field "depth" shows depth level of how many nodes are highlighted when a node is clicked. Checkboxes "Dependant" and "Dependencies" controls what type of neighbor nodes are highlighted when node is clicked. Together these inputs controls which nodes are highlighted when node is clicked. More about what happens when node is clicked is written below.
+- **Repositioning Nodes:**
+  - **Start Repositioning:** Activates custom positioning for currently visible nodes.
+  - **Stop Repositioning:** Deactivates the custom positioning.
 
-"Show searched node paths" sliding checkbox controls display of a list of paths that searched node is part of.
+Unlike default positioning, which affects all nodes, these controls only apply to nodes that are currently displayed.
+
+- **Node Interaction Settings:** 
+  - **Depth Input Field:** Defines the depth level, determining how many nodes are highlighted when a node is clicked.
+  - **Neighbor Node Highlighting:**
+    - **Dependants Checkbox:** When checked, dependant neighbor nodes of a selected node are highlighted.
+    - **Dependencies Checkbox:** When checked, dependency neighbor nodes of a selected node are highlighted.
+   
+These settings collectively determine the scope of node highlighting upon interaction.
+
+- **Path Display:**
+  - **Show Searched Node Paths:** A sliding checkbox that, when activated, displays a list of all paths that include the searched node.
 
 ![image](https://github.com/ariis11/Graph-Representation/assets/47053735/35547259-ca17-4a68-a23f-269c14563561)
 
+This section provides essential tools for managing how nodes and their relationships are visualized and interacted with within the graph.
 
+### Other Functionality
+
+This section details additional interactive features within the graph environment.
+
+- **Node Interaction:**
+  - **Node Selection:** Clicking on a node highlights the edges between that node and its neighbors. The depth of neighbor nodes highlighted is determined by the "depth" input field in the Functions Section.
+  - **Neighbor Type Selection:** The type of neighbors highlighted (dependants or dependencies) is controlled by the checkboxes in the Functions Section.
+  - **Background Click:** Clicking on the background resets the view, removing any highlight from the edges.
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/e6e922ed-bc28-419d-b508-d29a5098ae82)
+
+- **Node Information:**
+  - **Right-Click on Node:** Right-clicking on a node displays the node's label and description in the top left corner of the interface.
+  - **Right-Click on Background:** Right-clicking on the background removes node information section.
+
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/52b4638b-f843-46ac-87c1-26a58d089244)
 
 
 
