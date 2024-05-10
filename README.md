@@ -1,10 +1,16 @@
-# Getting Started with Create React App
+# Getting Started with Graph Representation application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to run application
 
-## Available Scripts
+In order to run this application, open it in your code editor, open terminal and run these commands:
 
-In the project directory, you can run:
+### `npm install`
+
+Installs the dependencies in the local node_modules folder as defined in the package.json file. By executing this command, all the packages that the project relies on are downloaded and configured, preparing the project for development or production use.
+
+This is a necessary step before running the app if the dependencies are not yet installed or if new dependencies have been added to the project.
+
+This command is necessary only the first time the application is started.
 
 ### `npm start`
 
@@ -14,57 +20,54 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+## Structure of data file 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The structure of data file is consistent with a graph-based model where nodes represent entities and edges represent relationships or interactions. Paths (might contain explicit edges which show order of the path) provide predefined routes through the graph for analysis and visualization purposes.
 
-### `npm run build`
+#### Nodes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A list of objects, each representing a node within a graph. Each node has a unique `key`, a `label` for identification, and a `description`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Edges 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A list of objects that represent the connections or relationships between the nodes. Each edge specifies a `source` and a `target` node by their keys.
 
-### `npm run eject`
+#### Paths 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A list of specified paths within the graph, each containing a sequence of nodes and potentially explicit edges to show specific order of connections.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Example:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```json
+{
+  "nodes": [
+    {"key": "1.0", "label": "Node1", "description": "Description of Node 1"},
+    {"key": "2.0", "label": "Node2", "description": "Description of Node 2"},
+    {"key": "3.0", "label": "Node3", "description": "Description of Node 3"}
+  ],
+  "edges": [
+    {"source": "1.0", "target": "2.0"},
+    {"source": "1.0", "target": "3.0"}
+  ],
+  "paths": [
+    {
+      "title": "Path 1",
+      "nodes": ["1.0", "2.0", "3.0"],
+      "explicitEdges": [
+        {"source": "1.0", "target": "2.0"},
+        {"source": "2.0", "target": "3.0"}
+      ]
+    }
+  ]
+}
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## How does the application work
 
-## Learn More
+![image](https://github.com/ariis11/Graph-Representation/assets/47053735/813e7f68-7dc2-41a8-b089-e014eae81e9a)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
